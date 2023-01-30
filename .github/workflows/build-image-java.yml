@@ -35,6 +35,6 @@ jobs:
         run: |
           # Build a docker container and push it to ECR so that it can be deployed to ECS.
           docker login -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }} $ECR_REGISTRY
-          docker tag docker.io/library/sbnat:latest $ECR_REPOSITORY:$IMAGE_TAG
+          docker tag docker.io/library/sbnat:latest ghcr.io/c3s4rfred/sbnat:$IMAGE_TAG
           docker push $ECR_REGISTRY/c3s4rfred/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REPOSITORY:$IMAGE_TAG"
