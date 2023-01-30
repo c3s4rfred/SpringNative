@@ -34,7 +34,7 @@ jobs:
           IMAGE_TAG: ${{ env.PROJECT_VERSION }}
         run: |
           # Build a docker container and push it to ECR so that it can be deployed to ECS.
-          docker login -u ${{ github.actor }} --password-stdin $ECR_REGISTRY
+          docker login -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }} $ECR_REGISTRY
           docker tag $ECR_REPOSITORY:latest $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
