@@ -22,7 +22,7 @@ jobs:
           distribution: "adopt"
 
       - name: Build with Maven and Buildpacks
-        run: mvn clean spring-boot:build-image -Dspring-boot.build-image.imageName=sbnat:latest
+        run: mvn clean spring-boot:build-image -Dspring-boot.build-image.imageName=sbnat:latest -s settings.xml
 
       - name: Set project version as environment variable
         run: echo "PROJECT_VERSION=1.0.0" >> $GITHUB_ENV
