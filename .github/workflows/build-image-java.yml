@@ -31,5 +31,5 @@ jobs:
       
       - name: Push to Registry
         run: |
-          docker tag docker.io/library/rest-service-complete:0.0.1-SNAPSHOT ghcr.io/springnative/rest-service-complete:latest
-          docker push ghcr.io/springnative/rest-service-complete:latest
+          docker tag docker.io/library/rest-service-complete:0.0.1-SNAPSHOT ghcr.io/rest-service-complete:latest
+          docker push ghcr.io/rest-service-complete:latest
